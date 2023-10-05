@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
+import jwt
 
 
 
@@ -16,10 +17,25 @@ db = mysql.connector.connect(
 )
 
 
+# Secreto para firmar y verificar los tokens
+SECRET_KEY = 'tu_secreto'  # Reemplaza con una clave segura
+
 @app.route('/')
 def index():
     return "Welcome to the Promedico API!"  # You can customize this message
 
+# Ruta para el inicio de sesión y generación de token JWT
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    
+    # Verificar las credenciales del usuario en tu base de datos
+    # Si las credenciales son válidas, genera un token JWT
+    if data['username'] == 'usuario' and data['password'] == 'contraseña':
+        token = jwt.encode({'username': data['username']}, SECRET_KEY, algorithm='HS256')
+        return jsonify({'token': token}), 200
+    else:
+        return jsonify({'message': 'Credenciales inválidas'}), 401
 
 # Controladores para la gestión de clientes
 
