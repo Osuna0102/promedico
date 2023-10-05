@@ -18,58 +18,58 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            {token ? ( // Mostrar enlaces solo si hay un token (inicio de sesión exitoso)
+      <div className="container">
+        <div className="left-container">
+          <nav>
+            <ul>
+              {token ? (
+                <>
+                  <li>
+                    <Link to="/agents" className="route-button">Lista de Agentes</Link>
+                  </li>
+                  <li>
+                    <Link to="/agents/add" className="route-button">Registrar Agente</Link>
+                  </li>
+                  <li>
+                    <Link to="/customers" className="route-button">Lista de Customers</Link>
+                  </li>
+                  <li>
+                    <Link to="/customers/add" className="route-button">Registrar Customer</Link>
+                  </li>
+                  <li>
+                    <Link to="/assign-agent" className="route-button">Asignar Agente</Link>
+                  </li>
+                  <li>
+                    <Link to="/api/customers-with-agents" className="route-button">Clientes y sus Agentes</Link>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link to="/login" className="route-button">Iniciar sesión</Link>
+                </li>
+              )}
+            </ul>
+          </nav>
+        </div>
+        <div className="right-container">
+          <Routes>
+            <Route
+              path="/login"
+              element={<Login onLogin={handleLogin} />}
+            />
+            {token && (
               <>
-                <li>
-                  <Link to="/agents">Lista de Agentes</Link>
-                </li>
-                <li>
-                  <Link to="/agents/add">Registrar Agente</Link>
-                </li>
-                <li>
-                  <Link to="/customers">Lista de Customers</Link>
-                </li>
-                <li>
-                  <Link to="/customers/add">Registrar Customer</Link>
-                </li>
-                <li>
-                  <Link to="/assign-agent">Asignar Agente</Link>
-                </li>
-                <li>
-                  <Link to="/api/customers-with-agents">Listar Clientes y sus Agentes</Link>
-                </li>
-                <li>
-                  <Link to="/protected">Página Protegida</Link>
-                </li>
+                <Route path="/agents" element={<AgentList />} />
+                <Route path="/agents/add" element={<AgentForm />} />
+                <Route path="/customers" element={<CustomerList />} />
+                <Route path="/customers/add" element={<CustomerForm />} />
+                <Route path="/assign-agent" element={<AssignAgent />} />
+                <Route path="/api/customers-with-agents" element={<ClientCustomerList />} />
+                <Route path="/protected" element={<ProtectedComponent />} />
               </>
-            ) : (
-              // Si no hay un token, mostrar solo el enlace de inicio de sesión
-              <li>
-                <Link to="/login">Iniciar sesión</Link>
-              </li>
             )}
-          </ul>
-        </nav>
-        <Routes>
-          <Route
-            path="/login"
-            element={<Login onLogin={handleLogin} />}
-          />
-          {token && ( // Mostrar rutas protegidas si hay un token (inicio de sesión exitoso)
-            <>
-              <Route path="/agents" element={<AgentList />} />
-              <Route path="/agents/add" element={<AgentForm />} />
-              <Route path="/customers" element={<CustomerList />} />
-              <Route path="/customers/add" element={<CustomerForm />} />
-              <Route path="/assign-agent" element={<AssignAgent />} />
-              <Route path="/api/customers-with-agents" element={<ClientCustomerList />} />
-              <Route path="/protected" element={<ProtectedComponent />} />
-            </>
-          )}
-        </Routes>
+          </Routes>
+        </div>
       </div>
     </Router>
   );
