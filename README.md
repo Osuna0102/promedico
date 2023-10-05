@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Simple CRUD React using Python and Flask
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a web application that allows to manage its customers and agents. It enables the registration of customers, assignment of agents to customers, listing of customers with their respective agents, and management of agents.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- **Backend:**
+  - Python (Flask)
+  - MySQL Database
+  - Flask-CORS (for enabling Cross-Origin Resource Sharing)
 
-### `npm start`
+- **Frontend:**
+  - React 18.2.0
+  - Node.js 18.18.0
+  - npm 10.2.0
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend (Python)
 
-### `npm test`
+- Flask: Web framework for creating APIs in Python.
+- mysql-connector-python: Python connector for MySQL database.
+- Flask-CORS: Middleware for enabling CORS in Flask applications.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend (React)
 
-### `npm run build`
+- Axios: HTTP client for making API requests.
+- react-router-dom: Library for handling routing in React applications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Before running the project, ensure that you have the following installed:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Python
+- Node.js and npm
+- MySQL Server
 
-### `npm run eject`
+## Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Create a MySQL database named `company_inc`.
+2. Import the database schema using the SQL script provided in the `database.sql` file.
+3. Install the required Python dependencies using pip:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+pip install Flask mysql-connector-python Flask-CORS
+```
+Or use a the requriements.txt file with 
+```
+pip install -r requirements.txt
+```
+Open a terminal on the root folder and run Flask server:
+```
+python app.py
+```
+The Flask server will run at http://localhost:5000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**_KEEP IT RUNNING_**
 
-## Learn More
+### Frontend
+Open a terminal on the root folder and install the Node.js dependencies using npm:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install
+```
+```
+npm start
+```
+The React application will run at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**_KEEP IT RUNNING_**
 
-### Code Splitting
+## Usage
+Make sure you have **both** the FrontEnd and BackEnd running simultaniously.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Access the web application by opening your browser and visiting http://localhost:3000.
+### Features
+Registration and management of customers.
+Registration and management of agents.
+Assignment of agents to customers.
+Listing of customers with their respective agents.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
