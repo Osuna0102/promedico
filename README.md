@@ -80,6 +80,3 @@ Registration and management of customers.
 Registration and management of agents.
 Assignment of agents to customers.
 Listing of customers with their respective agents.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
