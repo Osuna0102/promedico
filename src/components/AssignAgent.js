@@ -18,27 +18,29 @@ const AssignAgentForm = () => {
   };
 
   return (
-    <div>
-      <h2>Asignar Agente a Cliente</h2>
-      <div>
-        <label htmlFor="agentId">ID del Agente:</label>
-        <input
-          type="text"
-          id="agentId"
-          value={agentId}
-          onChange={(e) => setAgentId(e.target.value)}
-        />
+    <div className="form-container">
+      <h2 className="form-heading">Asignar Agente a Cliente</h2>
+      <div className="form-row">
+        <div className="form-box">
+          <label htmlFor="agentId">ID del Agente:</label>
+          <input
+            type="text"
+            id="agentId"
+            value={agentId}
+            onChange={(e) => setAgentId(e.target.value)}
+          />
+        </div>
+        <div className="form-box">
+          <label htmlFor="customerId">ID del Cliente:</label>
+          <input
+            type="text"
+            id="customerId"
+            value={customerId}
+            onChange={(e) => setCustomerId(e.target.value)}
+          />
+        </div>
       </div>
-      <div>
-        <label htmlFor="customerId">ID del Cliente:</label>
-        <input
-          type="text"
-          id="customerId"
-          value={customerId}
-          onChange={(e) => setCustomerId(e.target.value)}
-        />
-      </div>
-      <button onClick={handleAssignAgent}>Asignar Agente</button>
+      <button className="form-button" onClick={handleAssignAgent}>Asignar Agente</button>
       {message && <p>{message}</p>}
     </div>
   );

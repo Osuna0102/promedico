@@ -28,24 +28,30 @@ const AgentForm = () => {
   };
 
   return (
-    <div>
-      <h2>Formulario de Agente</h2>
+    <div className="form-container">
+      <h2 className="form-heading">Formulario de Agente</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="cedula"
-          placeholder="Cédula"
-          value={formData.cedula}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Nombre"
-          value={formData.nombre}
-          onChange={handleChange}
-        />
-        <button type="submit">Registrar Agente</button>
+        <div className="form-row">
+          <div className="form-box">
+            <input
+              type="text"
+              name="cedula"
+              placeholder="Cédula"
+              value={formData.cedula}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-box">
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <button className="form-button" type="submit">Registrar Agente</button>
       </form>
     </div>
   );

@@ -7,7 +7,6 @@ import CustomerForm from './components/CustomerForm';
 import AssignAgent from './components/AssignAgent';
 import ClientCustomerList from './components/ClientCustomerList';
 import Login from './components/Login';
-import ProtectedComponent from './components/ProtectedComponent';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -40,7 +39,7 @@ function App() {
                     <Link to="/assign-agent" className="route-button">Asignar Agente</Link>
                   </li>
                   <li>
-                    <Link to="/api/customers-with-agents" className="route-button">Clientes y sus Agentes</Link>
+                    <Link to="/customers-with-agents" className="route-button">Clientes y sus Agentes</Link>
                   </li>
                 </>
               ) : (
@@ -64,8 +63,8 @@ function App() {
                 <Route path="/customers" element={<CustomerList />} />
                 <Route path="/customers/add" element={<CustomerForm />} />
                 <Route path="/assign-agent" element={<AssignAgent />} />
-                <Route path="/api/customers-with-agents" element={<ClientCustomerList />} />
-                <Route path="/protected" element={<ProtectedComponent />} />
+                <Route path="/customers-with-agents" element={<ClientCustomerList />} />
+
               </>
             )}
           </Routes>

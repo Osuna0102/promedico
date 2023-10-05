@@ -28,50 +28,67 @@ const CustomerForm = () => {
   };
 
   return (
-    <div>
-      <h2>Customer Form</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nombres"
-          placeholder="Nombres"
-          value={formData.nombres}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="cedula"
-          placeholder="Cédula"
-          value={formData.cedula}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="celular"
-          placeholder="Celular"
-          value={formData.celular}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="direccion"
-          placeholder="Dirección"
-          value={formData.direccion}
-          onChange={handleChange}
-        />
-        <select
-          name="ciudad_id"
-          value={formData.ciudad_id}
-          onChange={handleChange}
-        >
-          <option value="">Seleccione una ciudad</option>
-          <option value="1">City A</option>
-          <option value="2">City B</option>
-          <option value="3">City C</option>
-          {/* Agrega las opciones de las ciudades según tu base de datos */}
-        </select>
-        <button type="submit">Registrar Cliente</button>
-      </form>
+    <div className="form-container">
+      <h2 className="form-heading">Customer Form</h2>
+      <div className="form-row">
+        <div className="form-box">
+          <input
+            type="text"
+            name="nombres"
+            placeholder="Nombres"
+            value={formData.nombres}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-box">
+          <input
+            type="text"
+            name="cedula"
+            placeholder="Cédula"
+            value={formData.cedula}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-box">
+          <input
+            type="text"
+            name="celular"
+            placeholder="Celular"
+            value={formData.celular}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-box">
+          <input
+            type="text"
+            name="direccion"
+            placeholder="Dirección"
+            value={formData.direccion}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-box">
+          <select
+            name="ciudad_id"
+            value={formData.ciudad_id}
+            onChange={handleChange}
+          >
+            <option value="">Seleccione una ciudad</option>
+            <option value="1">City A</option>
+            <option value="2">City B</option>
+            <option value="3">City C</option>
+            {/* Agrega las opciones de las ciudades según tu base de datos */}
+          </select>
+        </div>
+        <div className="form-box">
+          <button
+            className="form-button"
+            type="submit"
+          >
+            Registrar Cliente
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

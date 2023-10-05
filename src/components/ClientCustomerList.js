@@ -5,7 +5,6 @@ const CustomerListWithAgents = () => {
   const [customersWithAgents, setCustomersWithAgents] = useState([]);
 
   useEffect(() => {
-    // Realiza una solicitud GET a la nueva ruta en tu servidor Flask
     axios.get('http://localhost:5000/api/customers-with-agents')
       .then((response) => {
         setCustomersWithAgents(response.data);
@@ -17,14 +16,27 @@ const CustomerListWithAgents = () => {
 
   return (
     <div>
-      <h2>Lista de Clientes con Agentes</h2>
-      <ul>
-        {customersWithAgents.map((customer) => (
-          <li key={customer.id}>
-            <strong>Cliente:</strong> {customer.nombres}, <strong>Cédula:</strong> {customer.cedula}, <strong>Agente:</strong> {customer.agente_nombre}
-          </li>
-        ))}
-      </ul>
+      <h2 className="route-heading">Lista de Clientes con Agentes</h2>
+      <table className="route-table">
+        <thead>
+          <tr>
+            <th className="table-header">#.</th>
+            <th className="table-header">Cliente</th>
+            <th className="table-header">Cédula</th>
+            <th className="table-header">Agente</th>
+          </tr>
+        </thead>
+        <tbody>
+          {customersWithAgents.map((customer, index) => (
+            <tr key={customer.id}>
+              <td className="table-data">{index + 1}</td>
+              <td className="table-data">{customer.nombres}</td>
+              <td className="table-data">{customer.cedula}</td>
+              <td className="table-data">{customer.agente_nombre}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

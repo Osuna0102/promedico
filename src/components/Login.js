@@ -7,7 +7,7 @@ function Login({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     
-    // Enviar las credenciales al servidor y obtener el token
+    // Send credentials to the server and get the token
     fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
@@ -18,38 +18,38 @@ function Login({ onLogin }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.token) {
-          onLogin(data.token); // Almacenar el token en el estado de la aplicación
-          console.log(data.token); // Muestra el token en la consola
+          onLogin(data.token); // Store the token in the application state
+          console.log(data.token); // Log the token to the console
         } else {
-          alert('Credenciales inválidas');
+          alert('Invalid credentials');
         }
       })
       .catch((error) => {
-        console.error('Error al iniciar sesión:', error);
+        console.error('Error logging in:', error);
       });
   }
 
   return (
-    <div>
-      <h2>Iniciar sesión</h2>
+    <div className="form-container">
+      <h2 className="form-heading">Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre de usuario:</label>
+        <div className="form-box">
+          <label>Username:</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div>
-          <label>Contraseña:</label>
+        <div className="form-box">
+          <label>Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button className="form-button" type="submit">Login</button>
       </form>
     </div>
   );

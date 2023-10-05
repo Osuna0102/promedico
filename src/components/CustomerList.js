@@ -5,7 +5,6 @@ const CustomerList = () => {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    // Fetch the customer data from your API
     axios.get('http://localhost:5000/api/customers')
       .then((response) => {
         setCustomers(response.data);
@@ -16,7 +15,6 @@ const CustomerList = () => {
   }, []);
 
   const handleDelete = (customerId) => {
-    // Implement the delete logic here and update the customers state
     axios.delete(`http://localhost:5000/api/customers/${customerId}`)
       .then(() => {
         setCustomers(customers.filter((customer) => customer[0] !== customerId));
@@ -28,15 +26,40 @@ const CustomerList = () => {
 
   return (
     <div>
-      <h2>Lista de Clientes</h2>
-      <ul>
-        {customers.map((customer) => (
-          <li key={customer[0]}>
-            Nombres: {customer[1]}, Cedula: {customer[2]}, Celular: {customer[3]}, Direccion: {customer[4]}, Ciudad ID: {customer[5]}
-            <button onClick={() => handleDelete(customer[0])}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
+      <h2 className="route-heading">Lista de Clientes</h2>
+      <table className="route-table">
+        <thead>
+          <tr>
+            <th className="table-header">#</th>
+            <th className="table-header">Nombres</th>
+            <th className="table-header">Cédula</th>
+            <th className="table-header">Celular</th>
+            <th className="table-header">Dirección</th>
+            <th className="table-header">Ciudad ID</th>
+            <th className="table-header">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {customers.map((customer, index) => (
+            <tr key={customer[0]}>
+              <td className="table-data">{index + 1}</td>
+              <td className="table-data">{customer[1]}</td>
+              <td className="table-data">{customer[2]}</td>
+              <td className="table-data">{customer[3]}</td>
+              <td className="table-data">{customer[4]}</td>
+              <td className="table-data">{customer[5]}</td>
+              <td className="table-data">
+                <button
+                  className="delete-button" // Add a class for styling
+                  onClick={() => handleDelete(customer[0])}
+                >
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
