@@ -7,7 +7,7 @@ const CustomerForm = () => {
     cedula: '',
     celular: '',
     direccion: '',
-    ciudad_id: '', // Cambia a 'ciudad_id' en lugar de 'ciudad'
+    ciudad_id: '',
   });
 
   const handleChange = (e) => {
@@ -20,7 +20,7 @@ const CustomerForm = () => {
     axios
       .post('http://localhost:5000/api/customers', formData)
       .then((response) => {
-        console.log(response.data); // Handle the API response as needed
+        console.log(response.data);
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -77,7 +77,6 @@ const CustomerForm = () => {
             <option value="1">City A</option>
             <option value="2">City B</option>
             <option value="3">City C</option>
-            {/* Agrega las opciones de las ciudades según tu base de datos */}
           </select>
         </div>
         <div className="form-box">

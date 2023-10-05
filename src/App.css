@@ -52,9 +52,10 @@ body {
   background-color: #555;
 }
 
+
 /* Container for the right column */
 .right-container {
-  flex: 1; /* Fill remaining space */
+  flex: 1;
   padding: 20px;
   background-color: #f0f0f0;
   border-left: 1px solid #ddd;
@@ -63,7 +64,7 @@ body {
   height: 400px;
 }
 
-
+/* Tables style */
 
 .route-table {
   border-collapse: collapse;
@@ -75,28 +76,24 @@ body {
   color: #fff;
   padding: 10px;
   text-align: center;
-  border: 1px solid #000; /* Black border */
+  border: 1px solid #000;
 }
 
 .table-data {
   padding: 10px;
   text-align: center;
-  border: 1px solid #000; /* Black border */
+  border: 1px solid #000;
 }
 
 
-/* Add this CSS to your App.css file */
 .delete-button {
   width: 100%;
-  padding: 10px; /* Add padding for better appearance */
-  background-color: #532626; /* Optional: Customize the button's background color */
-  color: #fff; /* Optional: Customize the button's text color */
-  border: none; /* Optional: Remove button border */
-  cursor: pointer; /* Optional: Add a pointer cursor on hover */
+  padding: 10px; 
+  background-color: #532626;
+  color: #fff; 
+  border: none;
+  cursor: pointer; 
 }
-
-
-/* Add these styles to your CSS file */
 
 /* Container for the entire form */
 .form-container {
@@ -122,7 +119,6 @@ body {
   gap: 10px;
 }
 
-/* Individual form box */
 .form-box {
   flex: 1;
   padding: 10px;

@@ -3,26 +3,24 @@ import mysql.connector
 from flask_cors import CORS
 import jwt
 
-
-
 app = Flask(__name__)
-CORS(app)  # Enable CORS for your app
+CORS(app)  
 
-# Configura la conexión a MySQL
+# Conexión a MySQL
 db = mysql.connector.connect(
     host="localhost",            # Host de la base de datos
-    user="root",     # Usuario de MySQL
-    password="alejo123",  # Contraseña de MySQL
+    user="root",                 # Usuario de MySQL
+    password="alejo123",         # Contraseña de MySQL
     database="company_inc"       # Nombre de la base de datos
 )
 
 
 # Secreto para firmar y verificar los tokens
-SECRET_KEY = 'tu_secreto'  # Reemplaza con una clave segura
+SECRET_KEY = 'tu_secreto'  
 
 @app.route('/')
 def index():
-    return "Welcome to the Promedico API!"  # You can customize this message
+    return "Welcome to the BackEnd API!" 
 
 # Ruta para el inicio de sesión y generación de token JWT
 @app.route('/api/login', methods=['POST'])
@@ -36,7 +34,9 @@ def login():
         return jsonify({'token': token}), 200
     else:
         return jsonify({'message': 'Credenciales inválidas'}), 401
+    
 
+# -------------------------------------------------------------------------------------
 # Controladores para la gestión de clientes
 
 # Ruta para registrar un cliente
@@ -91,6 +91,9 @@ def delete_customer(customer_id):
     cursor.close()
     return jsonify({'message': 'Cliente eliminado exitosamente'}), 200
 
+
+
+# -------------------------------------------------------------------------------------
 # Controladores para la gestión de agentes
 # Ruta para registrar un agente
 @app.route('/api/agents', methods=['POST'])

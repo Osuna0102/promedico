@@ -50,7 +50,7 @@ const CustomerList = () => {
               <td className="table-data">{customer[5]}</td>
               <td className="table-data">
                 <button
-                  className="delete-button" // Add a class for styling
+                  className="delete-button"
                   onClick={() => handleDelete(customer[0])}
                 >
                   Eliminar
